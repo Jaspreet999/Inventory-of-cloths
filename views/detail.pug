@@ -1,0 +1,29 @@
+extends layout 
+
+block contents 
+
+    div( class="container")
+        div( class="card" style="width:50rem; height:fit-content;")
+            if( movie)
+            div( class="row")
+                div( class="col-sm")
+                    img( src="/uploads/" + movie.image, style="height:20rem; margin:2rem;" alt="image uploading")
+                div( class="col-lg")
+                    div( class="card-body")
+                        h3( class="card-title") #{movie.name}
+                        p( class="card-description") #{movie.description}
+                        h5( class="card-star") #[strong Star]
+                        p #{movie.starring}
+                        h5( class="card-release") #[strong Release Date] 
+                        p #{movie.dateofrelease}
+                        h5( class="Rating") #[strong Rating]
+                        - var arr = [1,2,3,4,5]
+                        each i in arr
+                            if i <= movie.ratingNum
+                                span( class="fa fa-star checked") 
+                            else
+                                span( class="fa fa-star") 
+
+                        h5(class="price" style="text-align:right; margin-top:5px;") #[strong Price:] #{movie.price}Rs          
+                        
+

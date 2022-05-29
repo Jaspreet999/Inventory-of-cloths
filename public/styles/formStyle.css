@@ -1,0 +1,25 @@
+.form-container{
+    display: inline-table;
+    flex-direction: column;
+    justify-self: center;
+    margin: 4%;
+    background-color: black;
+    border-radius: 2%;
+    box-shadow: 2% white;
+    color: white;
+    height: fit-content;
+    align-self: center;
+    padding: 3%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;  
+}
+
+.form-group{
+    margin: 2%;
+}
+
+button{
+    margin-top: 2%;
+    width: 100%;
+}

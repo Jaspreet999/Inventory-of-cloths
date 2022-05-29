@@ -1,0 +1,67 @@
+extends layout
+block contents 
+
+    if error
+        h5(class='errorControl' style="color:brown; font-size: larger;") #{error}
+
+    div(class = 'form-container')
+        div(class='row')
+            
+            form( action="" method="POST" enctype="multipart/form-data")
+
+                div.textStyle
+                    h3= title
+            
+                div(class="form-group")
+                    label( for="movieName") Enter Movie Name
+                    input( type="text" class="form-control" name="moviename" value=(movie==undefined?'':movie.name) placeholder="Son of Sardar")
+
+                div(class="form-group")
+                    label( for="realeaseDate") Release Date
+                    input( type="date" class="form-control" id="releasedate" name="date" placeholder="2022-12-22" value=(movie==undefined?'':movie.dateofrelease) )
+
+                div(class="form-group")
+                    label( for="starring") Starring
+                    input( type="text" class="form-control" id="starring" name="starring" placeholder="Ajay Devgan, Sajay Dutt, Sonakshi Sinha" value=(movie==undefined?'':movie.starring) )
+                
+                div(class="row")
+                    div(class="form-group col-lg")
+                        label( for="price") Price
+                        input( type="number" class="form-control" id="price" name="price" placeholder="192" value=(movie==undefined?"":movie.price) )
+
+                    div(class="form-group col-lg")
+                        label( for="Rating") Rating
+                        select( class="form-control" name="rating")
+                            - var arr = [1,2,3,4,5]
+                            for i in arr
+                                if movie
+                                    option( value= i selected=(movie.rating == count?selected:false)) #{i}
+                                else 
+                                    option( value = i ,selected=false) #{i}
+                                    
+                            
+                div(class="form-group")
+                    label( for="description") Description
+                    if (movie)
+                        textarea(name="description", rows="4", placeholder="A guest tries to stay inside the house of a man who can't kill him unless he's outside, because of believing guest to be equal to God.", class="form-control") #{movie.description}
+
+                    else 
+                        textarea(name="description", rows="4", placeholder="192", class="form-control")           
+
+
+                div(class="form-group")
+                    label( for="image") Upload Image
+                    br
+                    input( type="file" class="form-control-file" name="image" )
+
+                button( type="submit" class="btn btn-danger btn-block") Submit    
+
+                
+                
+
+
+                
+                
+            
+            
+            

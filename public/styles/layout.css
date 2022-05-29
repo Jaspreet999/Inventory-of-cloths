@@ -1,0 +1,65 @@
+body{
+    background-color: rgba(0, 0, 0, 0.781);
+    margin: 0%;
+    align-items: center;
+}
+
+header > *{
+    display: inline-block;
+    width: 50%;
+}
+
+header{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    padding: 1%;
+}
+
+header, footer{
+    background-color: black;
+    color: white;
+}
+
+div.header-text{
+   text-align: left;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: medium;
+}
+
+a{
+    text-decoration: none;
+    margin-left: 10%;
+}
+
+.container{
+    color: white;
+}
+
+.card{
+    background-color: black;
+    margin-top: 7%;
+}
+
+
+.card:hover{
+    border: 2px solid black;
+}
+
+
+
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+footer > p{
+    padding-right: 2%;
+    text-align: right;
+}
+
+.checked{
+    color: brown;
+}
+
+

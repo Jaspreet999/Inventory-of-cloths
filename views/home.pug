@@ -1,0 +1,15 @@
+extends layout.pug
+block contents
+
+    div(class = 'container')
+        div(class = 'row')
+            if (movies)
+                each movie in movies
+                    div(class='col-sm-4')
+                        div(class="card" style="width: 18rem; height:25rem")
+                            img( src="uploads/"+ movie.image,style="height:18rem;" alt="image uploading")
+                            div( class="card-body")
+                                h4(class="card-title") #{movie.name}
+                                a(href=movie.url+'/delete', class="btn btn-danger"): img(src="images/trash.svg", alt="Delete")
+                                a(href=movie.url+'/detail' class="btn btn-danger"): img(src="images/eye.svg", alt="view")
+                                a(href=movie.url+'/update' class="btn btn-danger"): img(src="images/pencil.svg", alt="edit")
