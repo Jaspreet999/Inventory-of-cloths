@@ -65,7 +65,7 @@ exports.create_movie_post = [
                 fs.unlink('public/uploads/'+req.file.filename,(err)=>{
                     if(err) return next(err)
 
-                    console.log(req.file.fileName+ ' deleted')
+                    console.log(req.file.filename+ ' deleted')
                 })
             }
             res.render('addorUpdate',{title:'Add Movie',movie:movie,error:error.array()})
@@ -132,7 +132,6 @@ exports.update_movie_post = [
     body('rating').trim().optional(checkFalsy=true).isNumeric().withMessage('Rating field should not be empty'),
     body('price').trim().optional(checkFalsy=true).isNumeric().withMessage('Price should not be empty'),
     body('date', 'Invalid date of release').optional({ checkFalsy: true }).isISO8601().toDate(),
-    body('image','please select an image').notEmpty(),
     body('image').custom((value,{req})=>{
         var ext = (path.extname(req.file.originalname)).toLowerCase()
         switch(ext){
@@ -169,11 +168,12 @@ exports.update_movie_post = [
         
 
        if(!error.isEmpty()){
+           console.log(error)
             if(req.file){
                 fs.unlink('public/uploads/'+req.file.filename,(err)=>{
                     if(err) return next(err)
 
-                    console.log(req.file.fileName+ ' deleted')
+                    console.log(req.file.filename+ ' deleted')
                 })
             }
             res.render('addorUpdate',{title:'Add Movie',movie:movie,error:"Please fill all the fields"})

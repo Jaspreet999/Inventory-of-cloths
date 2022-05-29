@@ -34,8 +34,6 @@ router.get('/:id/delete',movieController.delete_movie_get)
 
 router.post('/:id/delete',movieController.delete_movie_post)
 
-router.post('/:id/update',movieController.delete_movie_post)
-
 router.get('/:id/detail',movieController.movie_detail)
 
 module.exports = router
