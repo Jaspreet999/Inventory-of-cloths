@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname,"public")))
 
 var port = (process.env.PORT || 1314)
 
-//make database connectivity
-const url = "mongodb+srv://m-001-student:m001-mongodb@sandbox.zoqk7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 mongoose.connect(url,{useNewUrlParser:true, useUnifiedTopology: true})
 
 var db = mongoose.connection;
